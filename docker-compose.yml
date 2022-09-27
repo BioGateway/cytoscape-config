@@ -4,6 +4,7 @@ services:
     image: httpd:latest
     container_name: apache-app-config
     volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./configs:/usr/local/apache2/htdocs
     ports:
       - '8080:80'
