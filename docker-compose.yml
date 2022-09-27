@@ -5,6 +5,8 @@ services:
     container_name: apache-app-config
     volumes:
       - ./configs:/usr/local/apache2/htdocs
+    ports:
+      - '8080:80'
     environment:
       VIRTUAL_HOST: appconfig.biogateway.eu
       LETSENCRYPT_HOST: appconfig.biogateway.eu
