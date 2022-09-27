@@ -2,7 +2,7 @@
 <root>
   <latestVersion>3.2.0</latestVersion>
   <config version="3201">
-    <endpoint sparql="http://ssb4.nt.ntnu.no:34022/sparql" dictionary="http://ssb4.nt.ntnu.no:3003/"/>
+    <endpoint sparql="https://3401.biogateway.eu/sparql" dictionary="https://3401.meta.biogateway.eu/"/>
 
     <nodetypes>
       <type id="protein" class="entity"    name="Protein" uriPattern="rdf.biogateway.eu/prot/" autocompleteType="prefix"/>
