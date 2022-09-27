@@ -6,8 +6,6 @@ services:
     volumes:
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./configs:/usr/local/apache2/htdocs
-    ports:
-      - '8080:80'
     environment:
       VIRTUAL_HOST: appconfig.biogateway.eu
       LETSENCRYPT_HOST: appconfig.biogateway.eu
