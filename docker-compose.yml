@@ -11,7 +11,7 @@ services:
       LETSENCRYPT_HOST: appconfig.biogateway.eu
       VIRTUAL_PORT: 80
     networks:
-      nginx_network:
+      nginx:
 networks:
-  nginx_network:
+  nginx:
     external: true
