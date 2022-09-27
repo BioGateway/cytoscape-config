@@ -46,9 +46,8 @@
     </taxa>
 
     <relationTypes>
-      <relationType name="positively regulates" defaultGraph="preg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="true" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
-      <relationType name="negatively regulates" defaultGraph="nreg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="true" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
-      <relationType name="involved in regulation of" defaultGraph="reg2targ" graphLabel="Regulators" fromType="protein" toType="protein" defaultEnabled="true" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      <relationType name="positively regulates" defaultGraph="tfac2gene" graphLabel="Signor" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+      <relationType name="negatively regulates" defaultGraph="tfac2gene" graphLabel="Signor" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
       <relationType name="involved in regulation of" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene" defaultEnabled="true" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       <relationType name="molecularly interacts with" defaultGraph="prot2prot" graphLabel="IntAct" fromType="protein" toType="protein"  defaultEnabled="true" expandable="true" color="#007777" directed="false">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       <relationType name="encodes" defaultGraph="gene" graphLabel="UniProt Gene" fromType="gene" toType="protein"  defaultEnabled="true" color="#0033CC">http://semanticscience.org/resource/SIO_010078</relationType>
