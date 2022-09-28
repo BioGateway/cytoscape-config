@@ -71,7 +71,7 @@
           <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
           <relationType graph="ortho">http://semanticscience.org/resource/SIO_000558</relationType>
         </relationTypes>
-        <sparql>@first &lt;http://purl.obolibrary.org/obo/BFO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+        <sparql>@first &lt;http://purl.obolibrary.org/obo/RO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
       </action>
       <action type="query" parameter="last" graph="prot">
         <relationTypes>
@@ -79,19 +79,19 @@
           <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
           <relationType graph="ortho">http://semanticscience.org/resource/SIO_000558</relationType>
         </relationTypes>
-        <sparql>@last &lt;http://purl.obolibrary.org/obo/BFO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+        <sparql>@last &lt;http://purl.obolibrary.org/obo/RO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
       </action>
       <action type="query" parameter="first" graph="gene">
         <relationTypes>
           <relationType graph="gene">http://semanticscience.org/resource/SIO_010078</relationType>
         </relationTypes>
-        <sparql>@first &lt;http://purl.obolibrary.org/obo/BFO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+        <sparql>@first &lt;http://purl.obolibrary.org/obo/RO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
       </action>
       <action type="query" parameter="last" graph="gene">
         <relationTypes>
           <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
         </relationTypes>
-        <sparql>@last &lt;http://purl.obolibrary.org/obo/BFO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+        <sparql>@last &lt;http://purl.obolibrary.org/obo/RO_0000052&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
       </action>
     </taxonConstraint>
 
