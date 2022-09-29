@@ -20,7 +20,6 @@
     <taxa>
       <taxon id="3055" name="Chlamydomonas reinhardtii">http://purl.obolibrary.org/obo/NCBITaxon_3055</taxon>
       <taxon id="9031" name="Gallus gallus">http://purl.obolibrary.org/obo/NCBITaxon_9031</taxon>
-      <taxon id="6238" name="Caenorhabditis briggsae">http://purl.obolibrary.org/obo/NCBITaxon_6238</taxon>
       <taxon id="6239" name="Caenorhabditis elegans">http://purl.obolibrary.org/obo/NCBITaxon_6239</taxon>
       <taxon id="9913" name="Bos taurus">http://purl.obolibrary.org/obo/NCBITaxon_9913</taxon>
       <taxon id="7227" name="Drosophila melanogaster">http://purl.obolibrary.org/obo/NCBITaxon_7227</taxon>
@@ -29,7 +28,6 @@
       <taxon id="9606" name="Homo sapiens">http://purl.obolibrary.org/obo/NCBITaxon_9606</taxon>
       <taxon id="9986" name="Oryctolagus cuniculus">http://purl.obolibrary.org/obo/NCBITaxon_9986</taxon>
       <taxon id="3702" name="Arabidopsis thaliana">http://purl.obolibrary.org/obo/NCBITaxon_3702</taxon>
-      <taxon id="9544" name="Macaca mulatta">http://purl.obolibrary.org/obo/NCBITaxon_9544</taxon>
       <taxon id="7955" name="Danio rerio">http://purl.obolibrary.org/obo/NCBITaxon_7955</taxon>
       <taxon id="9615" name="Canis lupus familiaris">http://purl.obolibrary.org/obo/NCBITaxon_9615</taxon>
       <taxon id="10116" name="Rattus norvegicus">http://purl.obolibrary.org/obo/NCBITaxon_10116</taxon>
@@ -37,10 +35,7 @@
       <taxon id="36329" name="Plasmodium falciparum 3D7">http://purl.obolibrary.org/obo/NCBITaxon_36329</taxon>
       <taxon id="39947" name="Oryza sativa Japonica Group">http://purl.obolibrary.org/obo/NCBITaxon_39947</taxon>
       <taxon id="44689" name="Dictyostelium discoideum">http://purl.obolibrary.org/obo/NCBITaxon_44689</taxon>
-      <taxon id="510516" name="Aspergillus oryzae RIB40">http://purl.obolibrary.org/obo/NCBITaxon_510516</taxon>
       <taxon id="559292" name="Saccharomyces cerevisiae S288C">http://purl.obolibrary.org/obo/NCBITaxon_559292</taxon>
-      <taxon id="227321" name="Aspergillus nidulans FGSC A4">http://purl.obolibrary.org/obo/NCBITaxon_227321</taxon>
-      <taxon id="237561" name="Candida albicans SC5314">http://purl.obolibrary.org/obo/NCBITaxon_237561</taxon>
       <taxon id="284812" name="Schizosaccharomyces pombe 972h-">http://purl.obolibrary.org/obo/NCBITaxon_284812</taxon>
       <taxon id="367110" name="Neurospora crassa OR74A">http://purl.obolibrary.org/obo/NCBITaxon_367110</taxon>
     </taxa>
