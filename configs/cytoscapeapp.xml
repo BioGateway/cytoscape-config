@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <latestVersion>3.4.0</latestVersion>
+  <latestVersion>3.4</latestVersion>
   <config version="3402">
     <endpoint sparql="https://3402.biogateway.eu/sparql" dictionary="https://3402.meta.biogateway.eu/"/>
     <nodetypes>
