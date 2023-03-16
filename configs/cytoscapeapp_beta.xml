@@ -435,11 +435,11 @@
       <nodeShape type="GO-term" shape="diamond" width="120" height="50"/>
       <nodeShape type="Taxon" shape="hexagon"/>
       <nodeShape type="IntAct Interaction" shape="triangle"/>
-      <nodeBorderColor annotationScore="5" color="#000000" />
-      <nodeBorderColor annotationScore="4" color="#555555" />
-      <nodeBorderColor annotationScore="3" color="#aaaaaa" />
-      <nodeBorderColor annotationScore="2" color="#bbbbbb" />
-      <nodeBorderColor annotationScore="1" color="#cccccc" />
+      <nodeBorderColor uniprotScore="5.0" color="#000000" />
+      <nodeBorderColor uniprotScore="4.0" color="#555555" />
+      <nodeBorderColor uniprotScore="3.0" color="#aaaaaa" />
+      <nodeBorderColor uniprotScore="2.0" color="#bbbbbb" />
+      <nodeBorderColor uniprotScore="1.0" color="#cccccc" />
     </visualStyle>
 
   </config>
