@@ -4,7 +4,7 @@
   <config version="2303">
     <endpoint sparql="https://2303.biogateway.eu/sparql" dictionary="https://2303.meta.biogateway.eu/"/>
     <nodetypes>
-      <type id="protein" class="entity"    name="Protein" uriPattern="rdf.biogateway.eu/prot/" autocompleteType="prefix"/>
+      <type id="protein" class="entity"    name="Protein" uriPattern="uniprot.org/uniprot" autocompleteType="prefix"/>
       <type id="gene"    class="entity"    name="Gene" uriPattern="rdf.biogateway.eu/gene/" autocompleteType="prefix"/>
       <type id="tftg"    class="statement" name="GneX Statement" uriPattern="rdf.biogateway.eu/tfac-gene/" autocompleteType="prefix"/>
       <type id="ppi" class="undirected_statement" name="PPI Statement" uriPattern="rdf.biogateway.eu/prot-prot/" metadatagraph="http://rdf.biogateway.eu/graph/prot2prot" autocompleteType="prefix" />
