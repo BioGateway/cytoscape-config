@@ -230,7 +230,7 @@
       <query name="Website Example 1a">
         WHERE {
         GRAPH &lt;tfac2gene&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
         ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
@@ -239,7 +239,7 @@
       <query name="Website Example 1b">
         WHERE {
         GRAPH &lt;tfac2gene&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
         ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
@@ -254,7 +254,7 @@
 
         WHERE {
         GRAPH &lt;tfac2gene&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
         ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
@@ -267,7 +267,7 @@
       <query name="Website Example 1d">
         WHERE {
         GRAPH &lt;tfac2gene&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
         ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
@@ -283,7 +283,7 @@
       <query name="Website Example 1e">
         WHERE {
         GRAPH &lt;tfac2gene&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
         ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
@@ -326,26 +326,26 @@
       <query name="Protocols Paper fig 11">
         WHERE {
         GRAPH &lt;prot2prot&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
         }
         GRAPH &lt;gene&gt; {
-        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; .
+        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://uniprot.org/uniprot/P01116&gt; .
         }
         }
       </query>
       <query name="Protocols Paper fig 14">
         WHERE {
         GRAPH &lt;prot2prot&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
         }
         GRAPH &lt;prot2bp&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
         }
         GRAPH &lt;gene&gt; {
-        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://rdf.biogateway.eu/prot/9606/P01116&gt; .
+        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://uniprot.org/uniprot/P01116&gt; .
         }
         GRAPH &lt;prot2bp&gt; {
         ?A &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
@@ -394,10 +394,10 @@
       <query name="Protocols Paper fig 21">
         WHERE {
         GRAPH &lt;prot2prot&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/O43318&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        &lt;http://uniprot.org/uniprot/O43318&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
         }
         GRAPH &lt;prot2prot&gt; {
-        &lt;http://rdf.biogateway.eu/prot/9606/P31749&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        &lt;http://uniprot.org/uniprot/P31749&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
         }
         GRAPH &lt;tfac2gene&gt; {
         ?A &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?B .
