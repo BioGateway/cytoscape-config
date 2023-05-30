@@ -41,9 +41,12 @@
     </taxa>
 
     <relationTypes>
-      <relationType name="positively regulates" defaultGraph="tfac2gene" graphLabel="Signor" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
-      <relationType name="negatively regulates" defaultGraph="tfac2gene" graphLabel="Signor" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      <relationType name="positively regulates" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+      <relationType name="negatively regulates" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
       <relationType name="involved in regulation of" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene" defaultEnabled="true" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      <relationType name="positively regulates" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="false" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+      <relationType name="negatively regulates" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="false" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      <relationType name="involved in regulation of" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein" defaultEnabled="false" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       <relationType name="molecularly interacts with" defaultGraph="prot2prot" graphLabel="IntAct" fromType="protein" toType="protein"  defaultEnabled="true" expandable="true" color="#007777" directed="false">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       <relationType name="encodes" defaultGraph="gene" graphLabel="UniProt Gene" fromType="gene" toType="protein"  defaultEnabled="true" color="#0033CC">http://semanticscience.org/resource/SIO_010078</relationType>
       <relationType name="involved in" defaultGraph="prot2bp" graphLabel="GOA Biological Process" fromType="protein"  toType="go-term"  defaultEnabled="true" expandable="true" color="#33AA00">http://purl.obolibrary.org/obo/RO_0002331</relationType>
@@ -122,6 +125,110 @@
           </sparql>
           <relationTypes>
             <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          </relationTypes>
+        </action>
+      </constraint>
+      <constraint id="signorPathway" label="Signor: Pathway" type="combobox" defaultEnabled="true" >
+        <option name="AMPK">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AMPK&gt;</option>
+        <option name="PU">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PU&gt;</option>
+        <option name="AML">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AML&gt;</option>
+        <option name="FattyAcidSynthesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-FattyAcidSynthesis&gt;</option>
+        <option name="INSR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-INSR&gt;</option>
+        <option name="HT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-HT&gt;</option>
+        <option name="WNT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-WNT&gt;</option>
+        <option name="WNT_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-WNT_Myogenesis&gt;</option>
+        <option name="CS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CS&gt;</option>
+        <option name="TLR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TLR&gt;</option>
+        <option name="IIS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IIS&gt;</option>
+        <option name="M1M2">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-M1M2&gt;</option>
+        <option name="CCN">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CCN&gt;</option>
+        <option name="Inflammosome">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Inflammosome&gt;</option>
+        <option name="SCIR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCIR&gt;</option>
+        <option name="GS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GS&gt;</option>
+        <option name="LR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-LR&gt;</option>
+        <option name="CC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CC&gt;</option>
+        <option name="NOTCH">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NOTCH&gt;</option>
+        <option name="NOTCH_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NOTCH_Myogenesis&gt;</option>
+        <option name="SARS-CoV-MAPK-Pathway">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SARS-CoV-MAPK-Pathway&gt;</option>
+        <option name="AG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AG&gt;</option>
+        <option name="IL6">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IL6&gt;</option>
+        <option name="IS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IS&gt;</option>
+        <option name="AD">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AD&gt;</option>
+        <option name="DR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-DR&gt;</option>
+        <option name="MCAPO">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MCAPO&gt;</option>
+        <option name="SARS-COV-APOPTOSIS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SARS-COV-APOPTOSIS&gt;</option>
+        <option name="SCAAE">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCAAE&gt;</option>
+        <option name="TA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TA&gt;</option>
+        <option name="G2-M_trans">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-G2-M_trans&gt;</option>
+        <option name="OS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-OS&gt;</option>
+        <option name="DS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-DS&gt;</option>
+        <option name="GSP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GSP&gt;</option>
+        <option name="NR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NR&gt;</option>
+        <option name="IOA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IOA&gt;</option>
+        <option name="B-cell">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-B-cell&gt;</option>
+        <option name="EI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-EI&gt;</option>
+        <option name="PDAP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PDAP&gt;</option>
+        <option name="TCA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TCA&gt;</option>
+        <option name="SCISOVG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCISOVG&gt;</option>
+        <option name="MSP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MSP&gt;</option>
+        <option name="IL1R">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IL1R&gt;</option>
+        <option name="NFKBC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NFKBC&gt;</option>
+        <option name="PI3K-AKT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PI3K-AKT&gt;</option>
+        <option name="Fibrosis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Fibrosis&gt;</option>
+        <option name="SCFI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCFI&gt;</option>
+        <option name="TGFb">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TGFb&gt;</option>
+        <option name="NFKBNC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NFKBNC&gt;</option>
+        <option name="CRC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CRC&gt;</option>
+        <option name="CAC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CAC&gt;</option>
+        <option name="P38">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-P38&gt;</option>
+        <option name="PC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PC&gt;</option>
+        <option name="GBM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GBM&gt;</option>
+        <option name="AC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AC&gt;</option>
+        <option name="EGF">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-EGF&gt;</option>
+        <option name="LBC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-LBC&gt;</option>
+        <option name="MM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MM&gt;</option>
+        <option name="MS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MS&gt;</option>
+        <option name="NSCLCN">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NSCLCN&gt;</option>
+        <option name="RMS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-RMS&gt;</option>
+        <option name="TC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TC&gt;</option>
+        <option name="VEGF">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-VEGF&gt;</option>
+        <option name="P38_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-P38_Myogenesis&gt;</option>
+        <option name="SAPK-JNK">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SAPK-JNK&gt;</option>
+        <option name="VKC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-VKC&gt;</option>
+        <option name="Autophagy">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Autophagy&gt;</option>
+        <option name="SCUP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCUP&gt;</option>
+        <option name="GP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GP&gt;</option>
+        <option name="FSGS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-FSGS&gt;</option>
+        <option name="SCSG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCSG&gt;</option>
+        <option name="HPP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-HPP&gt;</option>
+        <option name="G1-S_trans">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-G1-S_trans&gt;</option>
+        <option name="PPP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PPP&gt;</option>
+        <option name="NM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NM&gt;</option>
+        <option name="THM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-THM&gt;</option>
+        <option name="SCCS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCCS&gt;</option>
+        <option name="RAS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-RAS&gt;</option>
+        <option name="Glycogenolysis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Glycogenolysis&gt;</option>
+        <option name="TI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TI&gt;</option>
+        <option name="TEAT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TEAT&gt;</option>
+        <option name="GCR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GCR&gt;</option>
+        <option name="Glycolysis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Glycolysis&gt;</option>
+        <option name="Hedgehog">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Hedgehog&gt;</option>
+        <option name="AAAM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AAAM&gt;</option>
+        <option name="IoT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IoT&gt;</option>
+        <option name="AML-IDH-TET">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AML-IDH-TET&gt;</option>
+        <option name="mRNA_Maturation">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-mRNA_Maturation&gt;</option>
+        <action type="query" parameter="both" graph="reg2targ">
+          <sparql>?@uniqueIduri rdf:object @last .
+            ?@uniqueIduri rdf:subject @first .
+            ?@uniqueIdInst rdf:type ?@uniqueIduri .
+            ?@uniqueIdInst &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; @value .
+          </sparql>
+          <relationTypes>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
           </relationTypes>
         </action>
       </constraint>
@@ -162,6 +269,15 @@
 		 " >
         <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
+      <metadataType id="signor_pathway" label="Signor Pathways" relationUri="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
+		 ?interaction rdf:subject &lt;@fromUri&gt; .
+		 ?interaction rdf:object &lt;@toUri&gt; .
+		 ?source rdf:type ?interaction .
+		 ?source @metadataRelationUri ?metadata .}}" >
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </metadataType>
       <metadataType id="gnex_source" label="tfact2gene Source" relationUri="&lt;http://semanticscience.org/resource/SIO_000253&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 		   	 ?interaction rdf:subject &lt;@fromUri&gt; .
 		   	 ?interaction rdf:object &lt;@toUri&gt; .
@@ -176,6 +292,7 @@
 		 ?source @metadataRelationUri ?metadata .}}" >
         <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
+
       <metadataType id="confidenceScore" label="IntAct: Score" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="double" sparql="WHERE {{ SELECT ?score as ?metadata
 		WHERE {
 			GRAPH &lt;@graph&gt; {
