@@ -2,7 +2,7 @@
 <root>
   <latestVersion>3.2.0</latestVersion>
   <config version="2303">
-    <endpoint sparql="https://2303.biogateway.eu/sparql" dictionary="https://2303.meta.biogateway.eu/"/>
+    <endpoint sparql="https://2306.biogateway.eu/sparql" dictionary="https://2306.meta.biogateway.eu/"/>
     <nodetypes>
       <type id="protein" class="entity"    name="Protein" uriPattern="uniprot.org/uniprot" autocompleteType="prefix"/>
       <type id="gene"    class="entity"    name="Gene" uriPattern="rdf.biogateway.eu/gene/" autocompleteType="prefix"/>
