@@ -257,7 +257,16 @@
         </action>
       </constraint>
     </queryConstraints>
-
+    <statementContextMenu>
+      <openURIAction id="openPPI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open PPI URI" multipleLabel="Open PPI URIs">
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      </openURIAction>
+      <openURIAction id="openPathwayURI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open pathway URI" multipleLabel="Open pathway URIs">
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </openURIAction>
+    </statementContextMenu>
     <relationMetadata>
       <metadataType id="gnex_confidence" label="tfact2gene Confidence" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="string" scalingFactor="0.33"  sparql="WHERE {GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
