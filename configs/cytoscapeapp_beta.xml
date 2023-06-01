@@ -261,10 +261,19 @@
       <openURIAction id="openPPI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open PPI URI" multipleLabel="Open PPI URIs">
         <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       </openURIAction>
-      <openURIAction id="openPathwayURI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open pathway URI" multipleLabel="Open pathway URIs">
+      <copyURIAction id="copyPathwayURI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Copy pathway URI" multipleLabel="Copy pathway URIs">
         <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
         <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
         <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </copyURIAction>
+      <openURIAction id="openEvidenceURI" resourceURI="&lt;http://semanticscience.org/resource/SIO_000772&gt;" singleLabel="Open PubMed article" multipleLabel="Open PubMed articles">
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+        <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </openURIAction>
     </statementContextMenu>
     <relationMetadata>
