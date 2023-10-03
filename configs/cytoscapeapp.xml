@@ -56,7 +56,6 @@
       <relationType name="is orthologous to" defaultGraph="ortho" graphLabel="Orthologs" fromType="protein" toType="protein" defaultEnabled="true" expandable="false" color="#C47D59">http://semanticscience.org/resource/SIO_000558</relationType>
       <relationType name="subject">http://www.w3.org/1999/02/22-rdf-syntax-ns#subject</relationType>
       <relationType name="object">http://www.w3.org/1999/02/22-rdf-syntax-ns#object</relationType>
-
     </relationTypes>
 
     <taxonConstraint id="taxonFilter" label="Taxon" type="boolean" defaultEnabled="true">
@@ -103,6 +102,51 @@
 
     <sources sourceRelation="http://semanticscience.org/resource/SIO_000253">
       <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002428" >
+        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
+        <source name="TFactS" uri="http://www.tfacts.org"/>
+        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+        <source name="ExTRI" uri="http://www.extri.org" />
+        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
+        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+      </relationType>
+      <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002429" >
+        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
+        <source name="TFactS" uri="http://www.tfacts.org"/>
+        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+        <source name="ExTRI" uri="http://www.extri.org" />
+        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
+        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+      </relationType>
+      <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002430" >
+        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
+        <source name="TFactS" uri="http://www.tfacts.org"/>
+        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+        <source name="ExTRI" uri="http://www.extri.org" />
+        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
+        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002428" >
+        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
+        <source name="TFactS" uri="http://www.tfacts.org"/>
+        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+        <source name="ExTRI" uri="http://www.extri.org" />
+        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
+        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002429" >
+        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
+        <source name="TFactS" uri="http://www.tfacts.org"/>
+        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+        <source name="ExTRI" uri="http://www.extri.org" />
+        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
+        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002430" >
         <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
         <source name="TFactS" uri="http://www.tfacts.org"/>
         <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
@@ -666,6 +710,7 @@
         <source name="ExTRI" uri="http://www.extri.org" />
         <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
         <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+        <source name="TFlink" uri="https://tflink.net/" />
       </relationType>
     </sources>
 
