@@ -288,7 +288,7 @@
     </queryConstraints>
 
     <relationMetadata>
-      <metadataType id="gnex_confidence" label="tfact2gene Confidence" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="string" scalingFactor="0.33"  sparql="WHERE {GRAPH &lt;@graph&gt; {
+      <metadataType id="tfac2gene_confidence" label="tfact2gene Confidence" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="string" scalingFactor="0.33"  sparql="WHERE {GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
 		 ?interaction rdf:object &lt;@toUri&gt; .
 		 ?source rdf:type ?interaction .
@@ -296,7 +296,7 @@
 		 ORDER BY DESC(?metadata)
 		 LIMIT 1
 		 " >
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
       <metadataType id="signor_pathway" label="Signor Pathways" relationUri="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
@@ -312,14 +312,14 @@
 		   	 ?interaction rdf:object &lt;@toUri&gt; .
 		 ?source rdf:type ?interaction .
 		 ?source @metadataRelationUri ?metadata .}}" >
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
       <metadataType id="tfac2gene_articleCount" label="tfact2gene Pubmed References" relationUri="&lt;http://semanticscience.org/resource/SIO_000772&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
 		 ?interaction rdf:object &lt;@toUri&gt; .
 		 ?source rdf:type ?interaction .
 		 ?source @metadataRelationUri ?metadata .}}" >
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
 
       <metadataType id="confidenceScore" label="IntAct: Score" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="double" sparql="WHERE {{ SELECT ?score as ?metadata
@@ -333,7 +333,7 @@
 		ORDER BY DESC(?score)
 		LIMIT 1
 		}}">
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       </metadataType>
       <metadataType id="experimentCount" label="IntAct: Experiment Count" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="integer" sparql="WHERE {{ SELECT COUNT(?experiment) as ?metadata
 		WHERE {
@@ -343,7 +343,7 @@
 		?instance rdf:type ?ppi .
 		?instance skos:relatedMatch ?experiment .
 		}}}}">
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       </metadataType>
       <metadataType id="experimentType" label="IntAct: Experiment Type" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 				?ppi rdf:subject | rdf:object &lt;@fromUri&gt; .
@@ -351,7 +351,7 @@
 	?instance rdf:type ?ppi .
 	?instance rdfs:isDefinedBy ?metadata .
 	}}">
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       </metadataType>
       <metadataType id="genex_direction" label="tfact2gene Direction" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="string" sparql="WHERE {
 				FILTER(REGEX(?metadata, 'http://semanticscience.org/resource/SIO_00140'))
@@ -360,7 +360,7 @@
 				  ?tsfr ?metadata &lt;@toUri&gt; .}}" >
         <conversion fromValue="http://semanticscience.org/resource/SIO_001401" toValue="positive"/>
         <conversion fromValue="http://semanticscience.org/resource/SIO_001402" toValue="negative"/>
-        <relationType defaultGraph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
       </metadataType>
     </relationMetadata>
 
