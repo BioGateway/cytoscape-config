@@ -107,7 +107,7 @@
         <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
         <source name="Signor" uri="http://signor.uniroma2.it/"/>
         <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="http://tflink.net" />
+        <source name="TFlink" uri="https://tflink.net/" />
         <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
         <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
       </relationType>
@@ -117,7 +117,7 @@
         <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
         <source name="Signor" uri="http://signor.uniroma2.it/"/>
         <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="http://tflink.net" />
+        <source name="TFlink" uri="https://tflink.net/" />
         <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
         <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
       </relationType>
@@ -127,7 +127,7 @@
         <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
         <source name="Signor" uri="http://signor.uniroma2.it/"/>
         <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="http://tflink.net" />
+        <source name="TFlink" uri="https://tflink.net/" />
         <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
         <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
       </relationType>
@@ -261,9 +261,9 @@
           </relationTypes>
         </action>
       </constraint>
-      <constraint id="intactScore" label="IntAct: Min Score" type="number" columns="5">
+      <constraint id="intactScore" label="IntAct: Min Score" type="number" columns="3">
         <action type="query" parameter="both" graph="prot2prot">
-          <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
           <sparql>?@uniqueIduri rdf:subject | rdf:object @first .
             ?@uniqueIduri rdf:subject | rdf:object @last .
             ?@uniqueIdInst rdf:type ?@uniqueIduri .
@@ -274,12 +274,12 @@
       </constraint>
       <constraint id="annotationScore" label="UniProt: Annotation Score" type="number" columns="5">
         <action type="query" parameter="both" graph="prot">
-          <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
-          <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
-          <relationType graph="gene">http://semanticscience.org/resource/SIO_010078</relationType>
-          <relationType graph="prot2onto">http://purl.obolibrary.org/obo/RO_0002327</relationType>
-          <relationType graph="prot2onto">http://purl.obolibrary.org/obo/RO_0002331</relationType>
-          <relationType graph="prot2phen">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/gene">http://semanticscience.org/resource/SIO_010078</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002327</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2phen">http://purl.obolibrary.org/obo/RO_0002331</relationType>
           <sparql>
             ?@uniqueIduri &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
           </sparql>
@@ -313,6 +313,8 @@
 		 ?source rdf:type ?interaction .
 		 ?source @metadataRelationUri ?metadata .}}" >
         <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
       </metadataType>
       <metadataType id="tfac2gene_articleCount" label="tfact2gene Pubmed References" relationUri="&lt;http://semanticscience.org/resource/SIO_000772&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
@@ -365,7 +367,7 @@
     </relationMetadata>
 
     <nodeMetadata>
-      <metadataType id="uniprotAccession" label="Protein: UniProt Accession" nodeType="protein" dataType="string" template="http://uniprot.org/uniprot/@value" sparql="&lt;@input&gt; &lt;http://schema.org/evidenceOrigin&gt; @output ." />
+<!--      <metadataType id="uniprotAccession" label="Protein: UniProt Accession" nodeType="protein" dataType="string" template="http://uniprot.org/uniprot/@value" sparql="&lt;@input&gt; &lt;http://schema.org/evidenceOrigin&gt; @output ." />-->
       <metadataType id="uniprotScore" label="Protein: Annotation Score" nodeType="protein" dataType="string" template="http://uniprot.org/uniprot/@value" sparql="&lt;@input&gt; &lt;http://schema.org/evidenceLevel&gt; @output ." />
       <!--<metadataType id="nodeSynonyms" label="Protein: Synonyms" nodeType="protein" dataType="stringArray" restGet="fetch?uri=@input" jsonField="synonyms" />-->
       <metadataType id="ensemblId" label="Gene: Ensembl ID" nodeType="gene" dataType="string" template="http://identifiers.org/ensembl/@value" sparql="&lt;@input&gt; &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; @output . FILTER regex(str(@output), &quot;http://identifiers.org/ensembl/&quot;) ." />
@@ -581,11 +583,11 @@
       <nodeShape type="GO-term" shape="diamond" width="120" height="50"/>
       <nodeShape type="Taxon" shape="hexagon"/>
       <nodeShape type="IntAct Interaction" shape="triangle"/>
-      <nodeBorderColor uniprotScore="5.0" color="#000000" />
-      <nodeBorderColor uniprotScore="4.0" color="#555555" />
-      <nodeBorderColor uniprotScore="3.0" color="#aaaaaa" />
-      <nodeBorderColor uniprotScore="2.0" color="#bbbbbb" />
-      <nodeBorderColor uniprotScore="1.0" color="#cccccc" />
+      <nodeBorderColor annotationScore="5" color="#000000" />
+      <nodeBorderColor annotationScore="4" color="#555555" />
+      <nodeBorderColor annotationScore="3" color="#aaaaaa" />
+      <nodeBorderColor annotationScore="2" color="#bbbbbb" />
+      <nodeBorderColor annotationScore="1" color="#cccccc" />
     </visualStyle>
 
   </config>
