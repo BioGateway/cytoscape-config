@@ -276,6 +276,11 @@
         <action type="query" parameter="both" graph="prot">
           <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/gene">http://semanticscience.org/resource/SIO_010078</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002327</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002331</relationType>
@@ -287,7 +292,7 @@
       </constraint>
     </queryConstraints>
     <statementContextMenu>
-      <openURIAction id="openPPI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open PPI URI" multipleLabel="Open PPI URIs">
+      <openURIAction id="openPPI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open PPI URI" multipleLabel="Open PPI URIs" >
         <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
       </openURIAction>
       <copyURIAction id="copyPathwayURI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Copy pathway URI" multipleLabel="Copy pathway URIs">
@@ -315,6 +320,9 @@
 		 LIMIT 1
 		 " >
         <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      </metadataType>
+      <metadataType id="mi_terms" label="MI Terms" relationUri="">
+
       </metadataType>
       <metadataType id="signor_pathway" label="Signor Pathways" relationUri="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
 		 ?interaction rdf:subject &lt;@fromUri&gt; .
