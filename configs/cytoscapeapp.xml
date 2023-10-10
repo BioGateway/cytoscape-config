@@ -273,7 +273,7 @@
         </action>
       </constraint>
       <constraint id="annotationScore" label="UniProt: Annotation Score" type="number" columns="5">
-        <action type="query" parameter="both" graph="prot">
+        <action type="query" parameter="first" graph="prot">
           <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
@@ -281,12 +281,20 @@
           <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
-          <relationType graph="http://rdf.biogateway.eu/graph/gene">http://semanticscience.org/resource/SIO_010078</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002327</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002331</relationType>
           <relationType graph="http://rdf.biogateway.eu/graph/prot2phen">http://purl.obolibrary.org/obo/RO_0002331</relationType>
           <sparql>
-            ?@uniqueIduri &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
+            @first &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
+          </sparql>
+        </action>
+        <action type="query" parameter="last" graph="prot">
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          <sparql>
+            @last &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
           </sparql>
         </action>
       </constraint>
