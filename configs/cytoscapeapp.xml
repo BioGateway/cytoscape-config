@@ -93,8 +93,8 @@
     </taxonConstraint>
 
     <searchTypes>
-      <searchType id="geneSymbol" title="Gene" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST"/>
-      <searchType id="protSymbol" title="Protein" nodeType="protein" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST"/>
+      <searchType id="geneSymbol" title="Gene" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST" searchParam="values"/>
+      <searchType id="protSymbol" title="Protein" nodeType="protein" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST" searchParam="values"/>
       <searchType id="uniprotId" title="Protein: Uniprot Accession" nodeType="protein" returnType="json" arraySearch="true" restPath="fetch" searchPrefix="http://uniprot.org/uniprot/" httpMethod="POST" searchParam="uris"/>
       <!--<searchType id="ensemblId" title="Gene: Ensembl Id" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithIdentifier" searchPrefix="http://identifiers.org/ensembl/" httpMethod="POST"/>
       <searchType id="entrezId" title="Gene: Entrez Id" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithIdentifier" searchPrefix="http://identifiers.org/ncbigene/" httpMethod="POST"/>-->
