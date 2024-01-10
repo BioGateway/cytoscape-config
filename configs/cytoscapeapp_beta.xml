@@ -102,34 +102,16 @@
 
     <sources sourceRelation="http://semanticscience.org/resource/SIO_000253">
       <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002428" >
-        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
-        <source name="TFactS" uri="http://www.tfacts.org"/>
-        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
-        <source name="Signor" uri="http://signor.uniroma2.it/"/>
-        <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="https://tflink.net/" />
-        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
-        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
       </relationType>
       <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002429" >
-        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
-        <source name="TFactS" uri="http://www.tfacts.org"/>
-        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
-        <source name="Signor" uri="http://signor.uniroma2.it/"/>
-        <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="https://tflink.net/" />
-        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
-        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
       </relationType>
       <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002430" >
-        <source name="HTRIdb"   uri="http://www.lbbc.ibb.unesp.br/htri"/>
-        <source name="TFactS" uri="http://www.tfacts.org"/>
-        <source name="TRRUST" uri="http://www.grnpedia.org/trrust/"/>
-        <source name="Signor" uri="http://signor.uniroma2.it/"/>
-        <source name="ExTRI" uri="http://www.extri.org" />
-        <source name="TFlink" uri="https://tflink.net/" />
-        <source name="CytReg" uri="http://rdf.biogateway.eu/graph/www.fuxmanlab.com" />
-        <source name="GEREDB" uri="http://rdf.biogateway.eu/graph/www.thua45.cn/geredb" />
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
       </relationType>
       <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002428" >
         <source name="Signor" uri="http://signor.uniroma2.it/"/>
