@@ -1,6 +1,613 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <latestVersion>3.4.0</latestVersion>
+  <config version="2312">
+    <endpoint sparql="https://2312.biogateway.eu/sparql" dictionary="https://2312.meta.biogateway.eu/"/>
+    <nodetypes>
+      <type id="protein" class="entity"    name="Protein" uriPattern="uniprot.org/uniprot" autocompleteType="prefix"/>
+      <type id="gene"    class="entity"    name="Gene" uriPattern="rdf.biogateway.eu/gene/" autocompleteType="prefix"/>
+      <type id="tftg"    class="statement" name="GneX Statement" uriPattern="rdf.biogateway.eu/tfac-gene/" autocompleteType="prefix"/>
+      <type id="ppi" class="undirected_statement" name="PPI Statement" uriPattern="rdf.biogateway.eu/prot-prot/" metadatagraph="http://rdf.biogateway.eu/graph/prot2prot" autocompleteType="prefix" />
+      <type id="goa"     class="statement" name="GO Annotation" uriPattern="rdf.biogateway.eu/prot-onto/" autocompleteType="prefix"/>
+      <type id="go-term" class="entity"    name="GO-term" uriPattern="purl.obolibrary.org/obo/" default="true" autocompleteType="infix"/>
+      <type id="go-bp"   class="statement" name="Biological Process" uriPattern="purl.obolibrary.org/obo/" autocompleteType="infix"/>
+      <type id="go-mf"   class="statement" name="Molecular Function" uriPattern="purl.obolibrary.org/obo/" autocompleteType="infix"/>
+      <type id="go-cc"   class="statement" name="Cellular Component" uriPattern="purl.obolibrary.org/obo/" autocompleteType="infix"/>
+      <type id="disease" class="entity"    name="Disease" uriPattern="purl.bioontology.org/ontology/OMIM/" autocompleteType="infix"/>
+      <type id="disease_annotation" class="statement" name="Disease Annotation" uriPattern="rdf.biogateway.eu/gene-phen/" metadatagraph="gene2phen" autocompleteType="prefix"/>
+    </nodetypes>
+
+    <taxa>
+      <taxon id="3055" name="Chlamydomonas reinhardtii">http://purl.obolibrary.org/obo/NCBITaxon_3055</taxon>
+      <taxon id="9031" name="Gallus gallus">http://purl.obolibrary.org/obo/NCBITaxon_9031</taxon>
+      <taxon id="6239" name="Caenorhabditis elegans">http://purl.obolibrary.org/obo/NCBITaxon_6239</taxon>
+      <taxon id="9913" name="Bos taurus">http://purl.obolibrary.org/obo/NCBITaxon_9913</taxon>
+      <taxon id="7227" name="Drosophila melanogaster">http://purl.obolibrary.org/obo/NCBITaxon_7227</taxon>
+      <taxon id="4577" name="Zea mays">http://purl.obolibrary.org/obo/NCBITaxon_4577</taxon>
+      <taxon id="9823" name="Sus scrofa">http://purl.obolibrary.org/obo/NCBITaxon_9823</taxon>
+      <taxon id="9606" name="Homo sapiens">http://purl.obolibrary.org/obo/NCBITaxon_9606</taxon>
+      <taxon id="9986" name="Oryctolagus cuniculus">http://purl.obolibrary.org/obo/NCBITaxon_9986</taxon>
+      <taxon id="3702" name="Arabidopsis thaliana">http://purl.obolibrary.org/obo/NCBITaxon_3702</taxon>
+      <taxon id="7955" name="Danio rerio">http://purl.obolibrary.org/obo/NCBITaxon_7955</taxon>
+      <taxon id="9615" name="Canis lupus familiaris">http://purl.obolibrary.org/obo/NCBITaxon_9615</taxon>
+      <taxon id="10116" name="Rattus norvegicus">http://purl.obolibrary.org/obo/NCBITaxon_10116</taxon>
+      <taxon id="10090" name="Mus musculus">http://purl.obolibrary.org/obo/NCBITaxon_10090</taxon>
+      <taxon id="36329" name="Plasmodium falciparum 3D7">http://purl.obolibrary.org/obo/NCBITaxon_36329</taxon>
+      <taxon id="39947" name="Oryza sativa Japonica Group">http://purl.obolibrary.org/obo/NCBITaxon_39947</taxon>
+      <taxon id="44689" name="Dictyostelium discoideum">http://purl.obolibrary.org/obo/NCBITaxon_44689</taxon>
+      <taxon id="559292" name="Saccharomyces cerevisiae S288C">http://purl.obolibrary.org/obo/NCBITaxon_559292</taxon>
+      <taxon id="284812" name="Schizosaccharomyces pombe 972h-">http://purl.obolibrary.org/obo/NCBITaxon_284812</taxon>
+      <taxon id="367110" name="Neurospora crassa OR74A">http://purl.obolibrary.org/obo/NCBITaxon_367110</taxon>
+    </taxa>
+
+    <relationTypes>
+      <relationType name="positively regulates" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+      <relationType name="negatively regulates" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene"  defaultEnabled="true" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      <relationType name="involved in regulation of" defaultGraph="tfac2gene" graphLabel="Transcription Factors" fromType="protein" toType="gene" defaultEnabled="true" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      <relationType name="positively regulates" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="false" expandable="true" color="#34ab8b" directed="true">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+      <relationType name="negatively regulates" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein"  defaultEnabled="false" expandable="true" color="#ff3363" directed="true">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      <relationType name="involved in regulation of" defaultGraph="reg2targ" graphLabel="Signor" fromType="protein" toType="protein" defaultEnabled="false" expandable="true" color="#009999">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      <relationType name="molecularly interacts with" defaultGraph="prot2prot" graphLabel="IntAct" fromType="protein" toType="protein"  defaultEnabled="true" expandable="true" color="#007777" directed="false">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      <relationType name="encodes" defaultGraph="gene" graphLabel="UniProt Gene" fromType="gene" toType="protein"  defaultEnabled="true" color="#0033CC">http://semanticscience.org/resource/SIO_010078</relationType>
+      <relationType name="involved in" defaultGraph="prot2bp" graphLabel="GOA Biological Process" fromType="protein"  toType="go-term"  defaultEnabled="true" expandable="true" color="#33AA00">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+      <relationType name="part of" defaultGraph="prot2cc" graphLabel="GOA Cellular Component" fromType="protein"  toType="go-term"  defaultEnabled="true" expandable="true" color="#33AA00">http://purl.obolibrary.org/obo/BFO_0000050</relationType>
+      <relationType name="enables" defaultGraph="prot2mf" graphLabel="GOA Molecular Function" fromType="protein"  toType="go-term"  defaultEnabled="true" expandable="true" color="#33AA00">http://purl.obolibrary.org/obo/RO_0002327</relationType>
+      <relationType name="involved in" defaultGraph="gene2phen" graphLabel="Disease" fromType="gene"  toType="disease"  defaultEnabled="true" expandable="true">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+      <relationType name="is orthologous to" defaultGraph="ortho" graphLabel="Orthologs" fromType="protein" toType="protein" defaultEnabled="true" expandable="false" color="#C47D59">http://semanticscience.org/resource/SIO_000558</relationType>
+      <relationType name="subject">http://www.w3.org/1999/02/22-rdf-syntax-ns#subject</relationType>
+      <relationType name="object">http://www.w3.org/1999/02/22-rdf-syntax-ns#object</relationType>
+    </relationTypes>
+
+    <taxonConstraint id="taxonFilter" label="Taxon" type="boolean" defaultEnabled="true">
+      <action type="query" parameter="first" graph="prot">
+        <relationTypes>
+          <relationType graph="prot2mf">http://purl.obolibrary.org/obo/RO_0002327</relationType>
+          <relationType graph="prot2bp">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+          <relationType graph="prot2cc">http://purl.obolibrary.org/obo/BFO_0000050</relationType>
+          <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="ortho">http://semanticscience.org/resource/SIO_000558</relationType>
+        </relationTypes>
+        <sparql>@first &lt;http://purl.obolibrary.org/obo/RO_0002162&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+      </action>
+      <action type="query" parameter="last" graph="prot">
+        <relationTypes>
+          <relationType graph="prot">http://semanticscience.org/resource/SIO_010078</relationType>
+          <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="ortho">http://semanticscience.org/resource/SIO_000558</relationType>
+        </relationTypes>
+        <sparql>@last &lt;http://purl.obolibrary.org/obo/RO_0002162&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+      </action>
+      <action type="query" parameter="first" graph="gene">
+        <relationTypes>
+          <relationType graph="gene">http://semanticscience.org/resource/SIO_010078</relationType>
+        </relationTypes>
+        <sparql>@first &lt;http://purl.obolibrary.org/obo/RO_0002162&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+      </action>
+      <action type="query" parameter="last" graph="gene">
+        <relationTypes>
+          <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        </relationTypes>
+        <sparql>@last &lt;http://purl.obolibrary.org/obo/RO_0002162&gt; ?taxon@uniqueId . FILTER(?taxon@uniqueId IN(@value))</sparql>
+      </action>
+    </taxonConstraint>
+
+    <searchTypes>
+      <searchType id="geneSymbol" title="Gene" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST" searchParam="values"/>
+      <searchType id="protSymbol" title="Protein" nodeType="protein" returnType="json" arraySearch="true" restPath="findNodesWithSynonyms" httpMethod="POST" searchParam="values"/>
+      <searchType id="uniprotId" title="Protein: Uniprot Accession" nodeType="protein" returnType="json" arraySearch="true" restPath="fetch" searchPrefix="http://uniprot.org/uniprot/" httpMethod="POST" searchParam="uris"/>
+      <!--<searchType id="ensemblId" title="Gene: Ensembl Id" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithIdentifier" searchPrefix="http://identifiers.org/ensembl/" httpMethod="POST"/>
+      <searchType id="entrezId" title="Gene: Entrez Id" nodeType="gene" returnType="json" arraySearch="true" restPath="findNodesWithIdentifier" searchPrefix="http://identifiers.org/ncbigene/" httpMethod="POST"/>-->
+    </searchTypes>
+
+    <sources sourceRelation="http://semanticscience.org/resource/SIO_000253">
+      <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002428" >
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
+      </relationType>
+      <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002429" >
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
+      </relationType>
+      <relationType graph="tfac2gene" uri="http://purl.obolibrary.org/obo/RO_0002430" >
+        <source name="CollecTRI"   uri="https://github.com/saezlab/CollecTRI"/>
+        <source name="TFlink" uri="https://tflink.net" />
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002428" >
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002429" >
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+      </relationType>
+      <relationType graph="reg2targ" uri="http://purl.obolibrary.org/obo/RO_0002430" >
+        <source name="Signor" uri="http://signor.uniroma2.it/"/>
+      </relationType>
+    </sources>
+
+    <queryConstraints>
+      <constraint id="confidenceLevel" label="Tfac2Gene: Confidence" type="combobox" defaultEnabled="true" >
+        <option name="High only">"High"</option>
+        <option name="Low only">"Low"</option>
+        <action type="query" parameter="both" graph="tfac2gene">
+          <sparql>?@uniqueIduri rdf:object @last .
+            ?@uniqueIduri rdf:subject @first .
+            ?@uniqueIdInst rdf:type ?@uniqueIduri .
+            ?@uniqueIdInst &lt;http://schema.org/evidenceLevel&gt; @value .
+          </sparql>
+          <relationTypes>
+            <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          </relationTypes>
+        </action>
+      </constraint>
+      <constraint id="signorPathway" label="Signor: Pathway" type="combobox" defaultEnabled="true" >
+        <option name="AMPK">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AMPK&gt;</option>
+        <option name="PU">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PU&gt;</option>
+        <option name="AML">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AML&gt;</option>
+        <option name="FattyAcidSynthesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-FattyAcidSynthesis&gt;</option>
+        <option name="INSR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-INSR&gt;</option>
+        <option name="HT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-HT&gt;</option>
+        <option name="WNT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-WNT&gt;</option>
+        <option name="WNT_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-WNT_Myogenesis&gt;</option>
+        <option name="CS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CS&gt;</option>
+        <option name="TLR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TLR&gt;</option>
+        <option name="IIS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IIS&gt;</option>
+        <option name="M1M2">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-M1M2&gt;</option>
+        <option name="CCN">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CCN&gt;</option>
+        <option name="Inflammosome">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Inflammosome&gt;</option>
+        <option name="SCIR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCIR&gt;</option>
+        <option name="GS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GS&gt;</option>
+        <option name="LR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-LR&gt;</option>
+        <option name="CC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CC&gt;</option>
+        <option name="NOTCH">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NOTCH&gt;</option>
+        <option name="NOTCH_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NOTCH_Myogenesis&gt;</option>
+        <option name="SARS-CoV-MAPK-Pathway">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SARS-CoV-MAPK-Pathway&gt;</option>
+        <option name="AG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AG&gt;</option>
+        <option name="IL6">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IL6&gt;</option>
+        <option name="IS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IS&gt;</option>
+        <option name="AD">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AD&gt;</option>
+        <option name="DR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-DR&gt;</option>
+        <option name="MCAPO">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MCAPO&gt;</option>
+        <option name="SARS-COV-APOPTOSIS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SARS-COV-APOPTOSIS&gt;</option>
+        <option name="SCAAE">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCAAE&gt;</option>
+        <option name="TA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TA&gt;</option>
+        <option name="G2-M_trans">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-G2-M_trans&gt;</option>
+        <option name="OS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-OS&gt;</option>
+        <option name="DS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-DS&gt;</option>
+        <option name="GSP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GSP&gt;</option>
+        <option name="NR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NR&gt;</option>
+        <option name="IOA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IOA&gt;</option>
+        <option name="B-cell">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-B-cell&gt;</option>
+        <option name="EI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-EI&gt;</option>
+        <option name="PDAP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PDAP&gt;</option>
+        <option name="TCA">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TCA&gt;</option>
+        <option name="SCISOVG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCISOVG&gt;</option>
+        <option name="MSP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MSP&gt;</option>
+        <option name="IL1R">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IL1R&gt;</option>
+        <option name="NFKBC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NFKBC&gt;</option>
+        <option name="PI3K-AKT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PI3K-AKT&gt;</option>
+        <option name="Fibrosis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Fibrosis&gt;</option>
+        <option name="SCFI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCFI&gt;</option>
+        <option name="TGFb">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TGFb&gt;</option>
+        <option name="NFKBNC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NFKBNC&gt;</option>
+        <option name="CRC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CRC&gt;</option>
+        <option name="CAC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-CAC&gt;</option>
+        <option name="P38">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-P38&gt;</option>
+        <option name="PC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PC&gt;</option>
+        <option name="GBM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GBM&gt;</option>
+        <option name="AC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AC&gt;</option>
+        <option name="EGF">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-EGF&gt;</option>
+        <option name="LBC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-LBC&gt;</option>
+        <option name="MM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MM&gt;</option>
+        <option name="MS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-MS&gt;</option>
+        <option name="NSCLCN">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NSCLCN&gt;</option>
+        <option name="RMS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-RMS&gt;</option>
+        <option name="TC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TC&gt;</option>
+        <option name="VEGF">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-VEGF&gt;</option>
+        <option name="P38_Myogenesis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-P38_Myogenesis&gt;</option>
+        <option name="SAPK-JNK">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SAPK-JNK&gt;</option>
+        <option name="VKC">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-VKC&gt;</option>
+        <option name="Autophagy">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Autophagy&gt;</option>
+        <option name="SCUP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCUP&gt;</option>
+        <option name="GP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GP&gt;</option>
+        <option name="FSGS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-FSGS&gt;</option>
+        <option name="SCSG">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCSG&gt;</option>
+        <option name="HPP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-HPP&gt;</option>
+        <option name="G1-S_trans">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-G1-S_trans&gt;</option>
+        <option name="PPP">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-PPP&gt;</option>
+        <option name="NM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-NM&gt;</option>
+        <option name="THM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-THM&gt;</option>
+        <option name="SCCS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-SCCS&gt;</option>
+        <option name="RAS">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-RAS&gt;</option>
+        <option name="Glycogenolysis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Glycogenolysis&gt;</option>
+        <option name="TI">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TI&gt;</option>
+        <option name="TEAT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-TEAT&gt;</option>
+        <option name="GCR">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-GCR&gt;</option>
+        <option name="Glycolysis">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Glycolysis&gt;</option>
+        <option name="Hedgehog">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-Hedgehog&gt;</option>
+        <option name="AAAM">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AAAM&gt;</option>
+        <option name="IoT">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-IoT&gt;</option>
+        <option name="AML-IDH-TET">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-AML-IDH-TET&gt;</option>
+        <option name="mRNA_Maturation">&lt;https://signor.uniroma2.it/getPathwayData.php?pathway=SIGNOR-mRNA_Maturation&gt;</option>
+        <action type="query" parameter="both" graph="reg2targ">
+          <sparql>?@uniqueIduri rdf:object @last .
+            ?@uniqueIduri rdf:subject @first .
+            ?@uniqueIdInst rdf:type ?@uniqueIduri .
+            ?@uniqueIdInst &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; @value .
+          </sparql>
+          <relationTypes>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+            <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          </relationTypes>
+        </action>
+      </constraint>
+      <constraint id="intactScore" label="IntAct: Min Score" type="number" columns="3">
+        <action type="query" parameter="both" graph="prot2prot">
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <sparql>?@uniqueIduri rdf:subject | rdf:object @first .
+            ?@uniqueIduri rdf:subject | rdf:object @last .
+            ?@uniqueIdInst rdf:type ?@uniqueIduri .
+            ?@uniqueIdInst &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence .
+            FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
+          </sparql>
+        </action>
+      </constraint>
+      <constraint id="annotationScore" label="UniProt: Annotation Score" type="number" columns="5">
+        <action type="query" parameter="first" graph="prot">
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002327</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2onto">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2phen">http://purl.obolibrary.org/obo/RO_0002331</relationType>
+          <sparql>
+            @first &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
+          </sparql>
+        </action>
+        <action type="query" parameter="last" graph="prot">
+          <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+          <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+          <sparql>
+            @last &lt;http://schema.org/evidenceLevel&gt; ?@uniqueIdconfidence . FILTER(xsd:double(?@uniqueIdconfidence) >= @value) .
+          </sparql>
+        </action>
+      </constraint>
+    </queryConstraints>
+    <statementContextMenu>
+      <openURIAction id="openPPI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Open PPI URI" multipleLabel="Open PPI URIs" >
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      </openURIAction>
+      <copyURIAction id="copyPathwayURI" resourceURI="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" singleLabel="Copy pathway URI" multipleLabel="Copy pathway URIs">
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </copyURIAction>
+      <openURIAction id="openEvidenceURI" resourceURI="&lt;http://semanticscience.org/resource/SIO_000772&gt;" singleLabel="Open PubMed article" multipleLabel="Open PubMed articles">
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+        <relationType graph="prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+        <relationType graph="tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      </openURIAction>
+    </statementContextMenu>
+    <relationMetadata>
+      <metadataType id="tfac2gene_confidence" label="tfact2gene Confidence" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="string" scalingFactor="0.33"  sparql="WHERE {GRAPH &lt;@graph&gt; {
+		 ?interaction rdf:subject &lt;@fromUri&gt; .
+		 ?interaction rdf:object &lt;@toUri&gt; .
+		 ?source rdf:type ?interaction .
+		 ?source &lt;http://schema.org/evidenceLevel&gt; ?metadata .}}
+		 ORDER BY DESC(?metadata)
+		 LIMIT 1
+		 " >
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      </metadataType>
+      <metadataType id="mi_terms" label="MI Terms" relationUri="">
+
+      </metadataType>
+      <metadataType id="signor_pathway" label="Signor Pathways" relationUri="&lt;http://purl.obolibrary.org/obo/BFO_0000050&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
+		 ?interaction rdf:subject &lt;@fromUri&gt; .
+		 ?interaction rdf:object &lt;@toUri&gt; .
+		 ?source rdf:type ?interaction .
+		 ?source @metadataRelationUri ?metadata .}}" >
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/reg2targ">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </metadataType>
+      <metadataType id="gnex_source" label="tfact2gene Source" relationUri="&lt;http://semanticscience.org/resource/SIO_000253&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
+		   	 ?interaction rdf:subject &lt;@fromUri&gt; .
+		   	 ?interaction rdf:object &lt;@toUri&gt; .
+		 ?source rdf:type ?interaction .
+		 ?source @metadataRelationUri ?metadata .}}" >
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002429</relationType>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002430</relationType>
+      </metadataType>
+      <metadataType id="tfac2gene_articleCount" label="tfact2gene Pubmed References" relationUri="&lt;http://semanticscience.org/resource/SIO_000772&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
+		 ?interaction rdf:subject &lt;@fromUri&gt; .
+		 ?interaction rdf:object &lt;@toUri&gt; .
+		 ?source rdf:type ?interaction .
+		 ?source @metadataRelationUri ?metadata .}}" >
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      </metadataType>
+
+      <metadataType id="confidenceScore" label="IntAct: Score" relationUri="&lt;http://schema.org/evidenceLevel&gt;" dataType="double" sparql="WHERE {{ SELECT ?score as ?metadata
+		WHERE {
+			GRAPH &lt;@graph&gt; {
+		?ppi rdf:subject | rdf:object &lt;@fromUri&gt; .
+		?ppi rdf:object | rdf:subject &lt;@toUri&gt; .
+		?instance rdf:type ?ppi .
+		?instance @metadataRelationUri ?score .
+		}}
+		ORDER BY DESC(?score)
+		LIMIT 1
+		}}">
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      </metadataType>
+      <metadataType id="experimentCount" label="IntAct: Experiment Count" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="integer" sparql="WHERE {{ SELECT COUNT(?experiment) as ?metadata
+		WHERE {
+			GRAPH &lt;@graph&gt; {
+		?ppi rdf:subject | rdf:object &lt;@fromUri&gt; .
+		?ppi rdf:object | rdf:subject &lt;@toUri&gt; .
+		?instance rdf:type ?ppi .
+		?instance skos:relatedMatch ?experiment .
+		}}}}">
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      </metadataType>
+      <metadataType id="experimentType" label="IntAct: Experiment Type" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="stringArray" sparql="WHERE { GRAPH &lt;@graph&gt; {
+				?ppi rdf:subject | rdf:object &lt;@fromUri&gt; .
+				?ppi rdf:object | rdf:subject &lt;@toUri&gt; .
+	?instance rdf:type ?ppi .
+	?instance rdfs:isDefinedBy ?metadata .
+	}}">
+        <relationType graph="http://rdf.biogateway.eu/graph/prot2prot">http://purl.obolibrary.org/obo/RO_0002436</relationType>
+      </metadataType>
+      <metadataType id="genex_direction" label="tfact2gene Direction" relationUri="&lt;http://semanticscience.org/resource/SIO_000139&gt;" dataType="string" sparql="WHERE {
+				FILTER(REGEX(?metadata, 'http://semanticscience.org/resource/SIO_00140'))
+				GRAPH &lt;@graph&gt; {
+				 &lt;@fromUri&gt; &lt;http://semanticscience.org/resource/SIO_000095&gt; ?tsfr .
+				  ?tsfr ?metadata &lt;@toUri&gt; .}}" >
+        <conversion fromValue="http://semanticscience.org/resource/SIO_001401" toValue="positive"/>
+        <conversion fromValue="http://semanticscience.org/resource/SIO_001402" toValue="negative"/>
+        <relationType graph="http://rdf.biogateway.eu/graph/tfac2gene">http://purl.obolibrary.org/obo/RO_0002428</relationType>
+      </metadataType>
+    </relationMetadata>
+
+    <nodeMetadata>
+      <!--      <metadataType id="uniprotAccession" label="Protein: UniProt Accession" nodeType="protein" dataType="string" template="http://uniprot.org/uniprot/@value" sparql="&lt;@input&gt; &lt;http://schema.org/evidenceOrigin&gt; @output ." />-->
+      <metadataType id="uniprotScore" label="Protein: Annotation Score" nodeType="protein" dataType="string" template="http://uniprot.org/uniprot/@value" sparql="&lt;@input&gt; &lt;http://schema.org/evidenceLevel&gt; @output ." />
+      <!--<metadataType id="nodeSynonyms" label="Protein: Synonyms" nodeType="protein" dataType="stringArray" restGet="fetch?uri=@input" jsonField="synonyms" />-->
+      <metadataType id="ensemblId" label="Gene: Ensembl ID" nodeType="gene" dataType="string" template="http://identifiers.org/ensembl/@value" sparql="&lt;@input&gt; &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; @output . FILTER regex(str(@output), &quot;http://identifiers.org/ensembl/&quot;) ." />
+      <metadataType id="ncbiId" label="Gene: NCBI Identifier" nodeType="gene" dataType="string" template="http://identifiers.org/ncbigene/@value" sparql="&lt;@input&gt; &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; @output . FILTER regex(str(@output), &quot;http://identifiers.org/ncbigene/&quot;) ." />
+    </nodeMetadata>
+
+    <exampleQueries>
+      <query name="Website Example 1a">
+        WHERE {
+        GRAPH &lt;tfac2gene&gt; {
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }}
+      </query>
+      <query name="Website Example 1b">
+        WHERE {
+        GRAPH &lt;tfac2gene&gt; {
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }
+        GRAPH &lt;gene&gt; {
+        ?A &lt;http://semanticscience.org/resource/SIO_010078&gt; ?C .
+        }}
+
+      </query>
+
+      <query name="Website Example 1c">
+
+        WHERE {
+        GRAPH &lt;tfac2gene&gt; {
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }
+        GRAPH &lt;gene&gt; {
+        ?A &lt;http://semanticscience.org/resource/SIO_010078&gt; ?B .
+        }}
+
+      </query>
+      <query name="Website Example 1d">
+        WHERE {
+        GRAPH &lt;tfac2gene&gt; {
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }
+        GRAPH &lt;gene&gt; {
+        ?A &lt;http://semanticscience.org/resource/SIO_010078&gt; ?B .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?C .
+        }}
+
+      </query>
+      <query name="Website Example 1e">
+        WHERE {
+        GRAPH &lt;tfac2gene&gt; {
+        &lt;http://uniprot.org/uniprot/P98177&gt; &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }
+        GRAPH &lt;gene&gt; {
+        ?A &lt;http://semanticscience.org/resource/SIO_010078&gt; ?B .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?C .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?C &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.obolibrary.org/obo/GO_0001666&gt; .
+        }}
+
+      </query>
+      <query name="App Paper Example">
+        WHERE {
+        GRAPH &lt;prot2mf&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002327&gt; &lt;http://purl.obolibrary.org/obo/GO_0004672&gt; .
+        }
+        GRAPH &lt;gene&gt; {
+        ?B &lt;http://semanticscience.org/resource/SIO_010078&gt; ?A .
+        }
+        GRAPH &lt;gene2phen&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.bioontology.org/ontology/OMIM/114500&gt; .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?C .
+        }
+        GRAPH &lt;gene&gt; {
+        ?D &lt;http://semanticscience.org/resource/SIO_010078&gt; ?C .
+        }
+        GRAPH &lt;tfac2gene&gt; {
+        ?E &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?D .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        ?E &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?C .
+        }}
+      </query>
+      <query name="Protocols Paper fig 11">
+        WHERE {
+        GRAPH &lt;prot2prot&gt; {
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        }
+        GRAPH &lt;gene&gt; {
+        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://uniprot.org/uniprot/P01116&gt; .
+        }
+        }
+      </query>
+      <query name="Protocols Paper fig 14">
+        WHERE {
+        GRAPH &lt;prot2prot&gt; {
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        &lt;http://uniprot.org/uniprot/P01116&gt; &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        }
+        GRAPH &lt;gene&gt; {
+        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; &lt;http://uniprot.org/uniprot/P01116&gt; .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        }
+        GRAPH &lt;gene&gt; {
+        ?D &lt;http://semanticscience.org/resource/SIO_010078&gt; ?A .
+        }
+        GRAPH &lt;tfac2gene&gt; {
+        ?E &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?D .
+        }
+        GRAPH &lt;tfac2gene&gt; {
+        ?E &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; &lt;http://rdf.biogateway.eu/gene/9606/KRAS&gt; .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?E &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?B .
+        }
+        }
+      </query>
+      <query name="Protocols Paper fig 16">
+        WHERE {
+        GRAPH &lt;gene2phen&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.bioontology.org/ontology/OMIM/114480&gt; .
+        }
+        GRAPH &lt;gene2phen&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.bioontology.org/ontology/OMIM/114500&gt; .
+        }
+        GRAPH &lt;tfac2gene&gt; {
+        ?B &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?A .
+        }}
+      </query>
+      <query name="Protocols Paper fig 18">
+        WHERE {
+        GRAPH &lt;prot2mf&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002327&gt; &lt;http://purl.obolibrary.org/obo/GO_0004672&gt; .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?B .
+        }
+        GRAPH &lt;gene&gt; {
+        ?C &lt;http://semanticscience.org/resource/SIO_010078&gt; ?A .
+        }
+        GRAPH &lt;gene2phen&gt; {
+        ?C &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; &lt;http://purl.bioontology.org/ontology/OMIM/114500&gt; .
+        }}
+      </query>
+      <query name="Protocols Paper fig 21">
+        WHERE {
+        GRAPH &lt;prot2prot&gt; {
+        &lt;http://uniprot.org/uniprot/O43318&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        }
+        GRAPH &lt;prot2prot&gt; {
+        &lt;http://uniprot.org/uniprot/P31749&gt; &lt;http://purl.obolibrary.org/obo/RO_0002436&gt; ?A .
+        }
+        GRAPH &lt;tfac2gene&gt; {
+        ?A &lt;http://purl.obolibrary.org/obo/RO_0002428&gt; ?B .
+        }
+        GRAPH &lt;gene&gt; {
+        ?B &lt;http://semanticscience.org/resource/SIO_010078&gt; ?C .
+        }
+        GRAPH &lt;prot2bp&gt; {
+        ?C &lt;http://purl.obolibrary.org/obo/RO_0002331&gt; ?D .
+        }
+        }
+      </query>
+    </exampleQueries>
+
+    <visualStyle>
+      <edgeColor uri="http://purl.obolibrary.org/obo/RO_0002436" color="#009999" />
+      <edgeColor uri="http://purl.obolibrary.org/obo/RO_0002429" color="#34ebab" />
+      <edgeColor uri="http://purl.obolibrary.org/obo/RO_0002430" color="#ff3363" />
+      <edgeColor uri="http://semanticscience.org/resource/SIO_010078" color="#0033CC" />
+      <edgeColor uri="http://purl.obolibrary.org/obo/RO_0002428" color="#009999" />
+      <edgeColor uri="http://purl.obolibrary.org/obo/RO_0002327" color="#33CC00" />
+      <edgeColor uri="http://semanticscience.org/resource/SIO_000139" color="#009999" />
+      <edgeColor uri="http://semanticscience.org/resource/SIO_000558" color="#FF9966" />
+      <edgeLine uri="http://semanticscience.org/resource/SIO_000139" lineType="dot" />
+      <edgeLine uri="http://semanticscience.org/resource/SIO_010078" lineType="dot" />
+      <edgeLine uri="http://semanticscience.org/resource/SIO_000558" lineType="dot" />
+      <edgeLine uri="http://purl.obolibrary.org/obo/RO_0002436"      lineType="equal_dash" />
+      <edgeLine uri="http://purl.obolibrary.org/obo/RO_0002327"      lineType="equal_dash" />
+      <edgeLine uri="http://purl.obolibrary.org/obo/RO_0002331" lineType="equal_dash" />
+      <nodeColor type="Protein" color="#E6F7FD"/>
+      <nodeColor type="Gene" color="#FFFCD3"/>
+      <nodeColor type="IntAct Interaction" color="#F5F5F5"/>
+      <nodeShape type="Protein" shape="round_rectangle" width="80" height="30"/>
+      <nodeShape type="Gene" shape="ellipse" width="60.0" height="30"/>
+      <nodeShape type="GO-term" shape="diamond" width="120" height="50"/>
+      <nodeShape type="Taxon" shape="hexagon"/>
+      <nodeShape type="IntAct Interaction" shape="triangle"/>
+      <nodeBorderColor annotationScore="5" color="#000000" />
+      <nodeBorderColor annotationScore="4" color="#555555" />
+      <nodeBorderColor annotationScore="3" color="#aaaaaa" />
+      <nodeBorderColor annotationScore="2" color="#bbbbbb" />
+      <nodeBorderColor annotationScore="1" color="#cccccc" />
+    </visualStyle>
+
+  </config>
+
   <config version="2303">
     <endpoint sparql="https://2303.biogateway.eu/sparql" dictionary="https://2303.meta.biogateway.eu/"/>
     <nodetypes>
